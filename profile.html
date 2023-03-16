@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Guvi-Php</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="logout.php">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+          <h2 class="text-center">Profile Updation</h2>
+          <br>
+          <input  type="hidden" id="action" value="update">
+          <form method="post">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="name">Fullname</label>
+                <input type="text" name="name" class="form-control" id="name" value="<?php echo $user["name"]; ?>" >
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Username</label>
+                <input name="username" type="text" class="form-control" id="username" value="<?php echo $user["username"]; ?>" readonly>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" name="email" value="<?php echo $user["email"]; ?>">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" id="password" value="<?php echo $user["password"]; ?>" readonly>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="contact">Contact</label>
+                <input type="tel" name="contact" class="form-control" id="contact" value="<?php echo $user["contact"]; ?>">
+              </div>
+              <div class="form-group col-md-2">
+                <label for="dob">DoB</label>
+                <input type="date" name="dob" class="form-control" id="dob" value="<?php echo $user["dob"]; ?>">
+              </div>
+            </div>
+            <div class="form-group">
+            </div>
+            <button type="button" class="btn btn-primary btn-block" onclick="submitData();">Update</button>
+            <?php require 'php/script.php'; ?>
+          </form>
+      </div>
+      </div>
+	</div>
+
+  </body>
+</html>
